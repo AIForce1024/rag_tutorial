@@ -1,0 +1,38 @@
+Introduction to Multimodal Generative Models-Model Architecture Key Features and Codes
+In this blog, we will give you a brief introduction of what are multimodal models and what can multimodal generative models accomplish. OpenAI just released their latest text-to-video multimodal generative model "SORA" in Feb, 2024 which becomes extremely popular. SORA can generate short videos of up to 1 minute's length. Before SORA, there are also many generative multi-modal models released by various companies, such as BLIP, BLIP2, FLAMINGO, FlaVA, etc. We will summarize a complete list of these time tested multi-modal generative models, introduce the model architures (text and image encoder), the training process, tasks, latex equation of loss functions, the Vision Language capabilities (such as text-to-image, text-to-video, text-to-audio, visual question answering), etc. Tag: Multimodal, AIGC, Large Language Model
+
+What are Multimodal Generative Models
+Multimodal Generative Models are generative models that takes inputs from multiple modalities, such as video, image, text and audio. It can perform various Vision Language Tasks, such as Visual Question Answering, Image-Text Retrieval, and generation tasks, such as image-to-text (Image Captioning), text-to-image(CLIP/unCLIP), text-to-video (SORA), etc.
+
+Typical Capabilities of Multimodal Generative Models
+Image Captioning
+The image captioning task asks the AI model to generate a text description based on the image's visual content. For example, multi-modal model takes inputs from multiple modality, including the vision input as well as the textual input of prompts "A photo of...", and the model generate the full caption based on the inputs of image and text prefix "A photo of..." and complete the caption as "A photo of a monkey eating yellow bananas". Typical dataset and task include COCO, etc.
+
+Image Text Retrieval
+Image Text Retrieval task performs information retrieval of cross-modalities, such as image retrieval by textual embedding vector, or vice versa text retrieval by input image embedding vector. The feature is extremely useful in modern search engine. Typical dataset include COCO and Flickr30K, etc.
+
+Text-to-Image
+User inputs textual prompts and the model encodes the inputs using LLM and outputs the image as a sequence of patches. Many AIGC scenarios are applications of text-to-image tasks, such as GPT-4V and Genimi.
+
+Text-to-Video
+User inputs textual prompts and the model encodes the inputs using LLM and outputs a complete video, such as SORA, Pika and Runway, etc.
+
+Visual Question Answering
+Visual Question Answering (VQA) is a task in computer vision. The tasks involves answering questions about an image. The goal of VQA is to teach machines to understand the content of an image and answer questions about it in natural language.
+
+List of Multimodal Models, Architectures and Key features
+Model   Year    Developer   Modality    Architecture    Key Features
+SORA    2024    OpenAI  Video,Text  Image Encoder: Diffusion DiT    Generative Modeling,Text-to-Video
+Gemini V1.5 2024    Google  Video,Text,Audio    Image Encoder: ViT,Text Encoder:Transformer Generative Modeling,Long Context Window
+BLIP2   2023    Salesforce Research Image,Text  Q-Former: Bridging Modality Gap,Image Encoder: ViT-L/ViT-G,Text LLM Encoder: OPT/FlanT5 Generative Modeling,Image-to-Text,Visual Question Answering,Image-to-Text Retrieval
+GPT-4V  2023    OpenAI  Image,Text  Text Encoder: GPT   Generative Modeling,Multimodal LLM,Visual Question Answering
+LLaVA   2023    Microsoft   Image,Text  Text LLM Encoder: Vicuna,Image Encoder:CLIP visual ViT-L    Generative Modeling,Visual Instruction Generation
+KOSMOS-2    2023    Microsoft   Image,Text  Vision encoder , LLM Encoder: 24-layer MAGNETO Transformer  Multimodal Grounding,Language Understanding and Generation
+PaLM-E  2023    Google  Image,Text  Image Encoder: ViT encoding Multimodal Language Model
+BLIP    2022    Salesforce Research Image,Text  Image Encoder: ViT-B,ViT-L; Text Encoder: BERT-Base Generative Modeling,Bootstrapping,VQA,Caption Generation
+FLAMINGO    2022    DeepMind    Image,Text  Gated Cross Attention,Multiway Transformer,ViT-giant    VQA,Interleaved Visual and Textual Data
+upCLIP  2022    OpenAI  Image,Text  CLIP ViT-L,Diffusion Prior/Autoregressive prior Generative Modeling,Text-to-Image,Image Generation,Diffusion Models
+BEiT-3  2022    Microsoft   Image,Text  Text Encoder: OPT/FlanT5,Image Encoder:ViT-L/ViT-g  Object Detection,Visual Question Answering,Image Captaining
+CLIP    2021    OpenAI  Image,Text  Text Encoder: Transformer; Image Encoder: ResNet/ViT    Multimodal Alignment,Zero-Shot Learning
+ALIGN   2021    Google  Image,Text  Image Encoder: EfficientNet,Text-Encoder: BERT  Multimodal Alignment,Image-Text Retrieval
+
